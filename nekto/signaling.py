@@ -103,7 +103,16 @@ class SignalingClient:
             "Pragma": "no-cache",
             "Cache-Control": "no-cache",
         }
-        self._ws = await session.ws_connect(self.url, headers=headers)
+        # `impersonate` must be passed to `ws_connect` explicitly — it is NOT
+        # inherited from the AsyncSession default for WebSocket upgrades
+        # (curl_cffi 0.15.x). Without this, libcurl falls back to the plain
+        # OpenSSL handshake and Cloudflare's bot rule on audiochat.nekto.me
+        # returns HTTP 526.
+        self._ws = await session.ws_connect(
+            self.url,
+            headers=headers,
+            impersonate=self.impersonate,
+        )
 
     async def close(self) -> None:
         self._stopped.set()
