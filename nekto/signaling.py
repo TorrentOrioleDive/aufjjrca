@@ -1,5 +1,5 @@
 """
-Low-level signaling client for `wss://audiochat.nekto.me/audiochat/audiochat/ws/chat/`.
+Low-level signaling client for `wss://audiochat.nekto.me/audiochat/ws/chat/`.
 
 Wire format is plain JSON (`{"type": "...", ...}`) over a raw WebSocket. There is
 no socket.io framing despite the field names in app.js suggesting otherwise —
@@ -23,7 +23,7 @@ from websockets.client import WebSocketClientProtocol
 
 Handler = Callable[[dict[str, Any]], Awaitable[None]]
 
-DEFAULT_URL = "wss://audiochat.nekto.me/audiochat/audiochat/ws/chat/"
+DEFAULT_URL = "wss://audiochat.nekto.me/audiochat/ws/chat/"
 DEFAULT_ORIGIN = "https://nekto.me"
 
 

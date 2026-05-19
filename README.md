@@ -82,7 +82,7 @@ python main.py
 
 ```
 13:42:01 info     startup                       bots=['bot_a', 'bot_b']
-13:42:01 info     ws.connect                    url=wss://audiochat.nekto.me/audiochat/audiochat/ws/chat/ bot=bot_a
+13:42:01 info     ws.connect                    url=wss://audiochat.nekto.me/audiochat/ws/chat/ bot=bot_a
 13:42:01 info     registered                    bot=bot_a token_id=... connection_id=...
 13:42:01 info     search.start                  bot=bot_a criteria={...}
 13:42:08 info     peer-connect                  bot=bot_a connection_id=... initiator=True
@@ -116,7 +116,7 @@ requirements.txt
 
 ### Что реверсилось из app.js
 
-* Endpoint: `wss://audiochat.nekto.me/audiochat/audiochat/ws/chat/`
+* Endpoint: `wss://audiochat.nekto.me/audiochat/ws/chat/`
 * Auth: `register { userId: token, version: 24, isTouch, messengerNeedAuth, timeZone, locale }`
 * `set-fpt` отправляется с `infoData` (fallback на plain JSON; шифрование `infoDataS` мы намеренно не реализуем)
 * `scan-for-peer { peerToPeer: true, searchCriteria, token: null }`
